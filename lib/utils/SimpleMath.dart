@@ -5,24 +5,28 @@ class SimpleMath {
 
   static String add(firstNumber,secondNumber) {
     String result = (firstNumber + secondNumber).toString();
+    firstNumber = double.parse(result);
     developer.log("add result: "  + result);
     return checkDecimalResult(result);
   }
 
   static String sub(firstNumber,secondNumber) {
     String result = (firstNumber - secondNumber).toString();
+    firstNumber = double.parse(result);
     developer.log("sub result: "  + result);
     return checkDecimalResult(result);
   }
 
   static String mul(firstNumber,secondNumber) {
     String result = (firstNumber * secondNumber).toString();
+    firstNumber = double.parse(result);
     developer.log("mul result: "  + result);
     return checkDecimalResult(result);
   }
 
   static String div(firstNumber,secondNumber) {
     String result = (firstNumber / secondNumber).toString();
+    firstNumber = double.parse(result);
     developer.log("div result: "  + result);
     return checkDecimalResult(result);
   }
