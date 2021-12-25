@@ -47,6 +47,8 @@ class CalculatorLogic{
       btnText == '/' ||
       btnText == '=') {
 
+      //result = Converter.eraseBigResult(result);
+
       if (firstNumber == 0) {
         firstNumber = double.parse(result);
       } else {
@@ -90,13 +92,13 @@ class CalculatorLogic{
       }
 
       finalResult = result;
-    } /*else if (result.toString().length > 3){ TODO: FIX LOGIC
-      result = Converter.checkBigResult(result);
-    } else if(result.toString().length >= 10){
-      developer.log("Yes result longer than 10 ");
-        result = Converter.eraseBigResult(result);*/
-     else {
+    } else if(result.toString().length <= 10) {
       result = result + btnText;
+
+      if (result.toString().length > 3){
+        result = Converter.checkBigResult(result);
+      }
+
       finalResult = result;
     }
   }

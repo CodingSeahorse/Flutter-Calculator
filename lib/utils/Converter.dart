@@ -1,9 +1,10 @@
 import 'package:basic_utils/basic_utils.dart';
+import 'dart:developer' as developer;
 
 class Converter {
 
   static String eraseBigResult (result) {
-    if(result.toString().contains('.')){
+
       dynamic freshResult = '';
 
       List<String> subResult = result.toString().split('.');
@@ -12,26 +13,32 @@ class Converter {
         freshResult += subResult[i];
       }
       return freshResult;
-    }
+  }
+
+  static String bigResultCreator(dynamic result, int count){
+    List<String> splicedResult = result.toString().split(',');
+    String tempRes = splicedResult[0] + splicedResult[1];
+    result = StringUtils.addCharAtPosition(tempRes, ",", count, repeat: false);
     return result;
   }
 
   static String checkBigResult(result) {
-    if(!result.toString().contains('.')){
-      return StringUtils.addCharAtPosition(result, ".", 3, repeat: true);
-    }else{
-      List<String> splicedResult = result.toString().split('.');
-
-      if (splicedResult[1].length > 3) {
-        //
-        // We check if the 2nd part String is > 3
-        //
-        dynamic croppedResult = StringUtils.addCharAtPosition(
-            splicedResult[1], ".", 3, repeat: true);
-        result = splicedResult[0] + '.' + croppedResult.toString();
+    // TODO: Create better Readable Resolution
+    /*if(!result.toString().contains(',')){
+      return StringUtils.addCharAtPosition(result, ",", 1, repeat: false);
+    } else{
+      if(result.toString().length > 3 && result.toString().length <= 6){
+        return bigResultCreator(result, 2);
+      } else if (result.toString().length > 6){
+        return bigResultCreator(result, 3);
+      } else if (result.toString().length > 7){
+        return bigResultCreator(result, 4);
+      } else if (result.toString().length > 8){
+        return bigResultCreator(result, 5);
       }
-      return result;
-    }
+    }*/
+    return result;
 
   }
+
 }

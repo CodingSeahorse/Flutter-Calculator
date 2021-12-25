@@ -232,7 +232,7 @@ class _CalculatorState extends State<Calculator> {
                       MyColors.myNumberBtnBorderColor
                     ),
                     calcButton(
-                        ',',
+                        '.',
                         MyColors.myNumberBtnColor,
                         MyColors.myBtnTextColor,
                         MyColors.myNumberBtnBorderColor),
